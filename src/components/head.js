@@ -19,7 +19,7 @@ const Head = ({title}) => {
     `)
 
     return (
-        <Helmet title={`${title} | ${data.site.siteMetadata.title}`} >
+        <Helmet title={`${data.site.siteMetadata.title}`} >
         
 
         <html lang="en" />

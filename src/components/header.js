@@ -90,7 +90,8 @@ const Hamburger = styled.div`
     }
     
 `
-var prevScrollpos = window.pageYOffset;
+if (typeof window !== `undefined`) {
+    var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
         //console.log("current position is: " + currentScrollPos);
@@ -101,6 +102,7 @@ var prevScrollpos = window.pageYOffset;
         }
         prevScrollpos = currentScrollPos;
     }
+}
 
 
 const Header = () => {
