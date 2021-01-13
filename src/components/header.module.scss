@@ -1,0 +1,134 @@
+.header {
+    background-color: #1F2C34;
+    padding: 3px 15px ;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0px 1px 7px black;
+    left: 0;
+    right: 0;
+    display: flex;
+    z-index: 2;
+
+    @media (max-width: 768px) {
+        padding: 0 20px;
+        position: fixed;
+        min-height: 80vh;
+        top: 0;
+        left: 0;
+        right: 0;
+        left: 0;
+        //background-color: #1F2C34;
+        background-color: yellow;
+        .menu {
+            text-align: center;
+            width: 100%;
+            height: 100%;
+            background: #1F2C34;
+            z-index: 5;
+            overflow: hidden;
+            //visibility: hidden;
+            opacity: 100;
+            transition: all 1s;        
+            
+          }
+
+        .menu ol {
+            display: block;
+            
+        }
+
+        .nav-item {
+            display: block;
+            border-bottom: 1px solid #3b3b3b;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            font-size: 8px;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+        }
+        
+        .menu button {
+            display: inline-block;
+            margin: 20px;
+            font-size: 1.2rem;
+        }
+      }
+}
+
+.header:global(#navbar) {
+    transition: top 0.5s;
+    position: fixed;
+    top: 0;
+}
+
+.title {
+    //background-color: lightblue;
+    width: 75px;
+    height: 37.5px;
+    margin: 2px;
+}
+
+.nav {
+    //background-color: yellow;
+    display: inline-flex;
+}
+
+.nav-list{
+    //background-color: red;
+    display: inline-flex;
+    list-style-type: none;
+    margin:auto;
+    padding-top: 1rem;
+    
+}
+
+.nav-item {
+    color: white;
+    font-size: .9rem;
+    margin-right: 1.33rem;
+    text-decoration: none;
+    
+}
+
+.nav-item:hover{
+    color:#666666;
+}
+
+.active-nav-item {
+    color: #333333;
+}
+
+.button{
+    line-height: initial;
+    background-color: #D9B310;
+    border: 1px solid;
+    color: #ECF0DB;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+
+    margin: auto;
+	font-weight:600;
+    box-shadow: 0px 0px 5px hsl(49, 86%, 46%); 
+    border-color: #D9B310;  
+}
+
+.button:hover {
+	background-color: #1F2C34;
+    color: white;
+    box-shadow: 0px 0px 6px #D9B310;
+	font-weight:600;
+}
+
+
+
+
+
+
