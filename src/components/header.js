@@ -48,13 +48,11 @@ const Navbox = styled.div`
     @media (max-width: 768px) {
         background-color: #1F2C34;
         position: fixed;
-        top: 10vh;
+        top: 11vh;
         width: 100%;
 
         transition: all 0.3s ease-in;
         left: ${props => (props.open ? "-100%" : "0")};  
-
-        
     }
 
 `
@@ -90,11 +88,11 @@ const Hamburger = styled.div`
     }
     
 `
+
 if (typeof window !== `undefined`) {
     var prevScrollpos = window.pageYOffset;
     window.onscroll = function() {
         var currentScrollPos = window.pageYOffset;
-        //console.log("current position is: " + currentScrollPos);
         if (prevScrollpos > currentScrollPos) {
             document.getElementById("navbar").style.top = "0px";
         } else {
@@ -104,6 +102,30 @@ if (typeof window !== `undefined`) {
     }
 }
 
+function lockNavbar() {
+    if (typeof window !== `undefined`) {
+        window.onscroll = function() {
+            document.getElementById("navbar").style.top = "0px";
+        }
+    }
+}
+
+function unlockNavbar() {
+    if (typeof window !== `undefined`) {
+        var prevScrollpos = window.pageYOffset;
+        window.onscroll = function() {
+            var currentScrollPos = window.pageYOffset;
+            if (prevScrollpos > currentScrollPos) {
+                document.getElementById("navbar").style.top = "0px";
+            } else {
+                document.getElementById("navbar").style.top = "-70px";
+            }
+            prevScrollpos = currentScrollPos;
+        }
+    }
+}
+
+
 
 const Header = () => {
     const [navbarOpen, setNavbarOpen] = useState(false)
@@ -111,11 +133,11 @@ const Header = () => {
     return (
         <Navigation id="navbar">
             <Logo />
-            <Toggle navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen)} >
+            <Toggle navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen, lockNavbar())} >
                 {navbarOpen ? <Hamburger open /> : <Hamburger />}
             </Toggle>
             {navbarOpen ? ( 
-                <Navbox navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen)}>
+                <Navbox navbarOpen={navbarOpen} onClick={() => setNavbarOpen(!navbarOpen, unlockNavbar())}>
                     <NavbarLinks  />
                 </Navbox>
             ) : (
