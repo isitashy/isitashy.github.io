@@ -1,12 +1,6 @@
 import React from 'react'
 import { Link , graphql, useStaticQuery } from 'gatsby'
 import styled from "styled-components"
-import Pdf from "../../documents/ShysellIsita-Resume.pdf"
-
-// Open Resume in New Tab
-function onResumeClick() {
-    window.open(Pdf);
-}
 
 const Container = styled.div`
     //background-color: blue;
@@ -84,9 +78,12 @@ const Resume = styled.button`
     :focus {
         outline: none !important;
     }
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 `
-
-
 
 const NavbarLinks = () => {
     const data = useStaticQuery(graphql`
@@ -111,8 +108,8 @@ const NavbarLinks = () => {
                     </NavLink>
                 )
             })}
-            <Resume type="button" onClick={onResumeClick} >
-                Resume
+            <Resume type="button">
+                <a href="/documents/ShysellIsita-Resume.pdf" target="_blank">Resume</a>
             </Resume>
         </ Container>
     )

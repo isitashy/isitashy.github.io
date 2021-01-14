@@ -48,7 +48,8 @@ const Navbox = styled.div`
     @media (max-width: 768px) {
         background-color: #1F2C34;
         position: fixed;
-        top: 11vh;
+        top: 75px;
+
         width: 100%;
 
         transition: all 0.3s ease-in;
@@ -102,16 +103,34 @@ if (typeof window !== `undefined`) {
     }
 }
 
+var isMounted;
 function lockNavbar() {
     if (typeof window !== `undefined`) {
-        window.onscroll = function() {
-            document.getElementById("navbar").style.top = "0px";
+        if(isMounted == null || isMounted == true ){
+            window.onscroll = function() {
+                    document.getElementById("navbar").style.top = "0px";
+            }
+            isMounted = false 
+        } else {
+            var prevScrollpos = window.pageYOffset;
+            window.onscroll = function() {
+                var currentScrollPos = window.pageYOffset;
+                if (prevScrollpos > currentScrollPos) {
+                    document.getElementById("navbar").style.top = "0px";
+                } else {
+                    document.getElementById("navbar").style.top = "-70px";
+                }
+                prevScrollpos = currentScrollPos;
+                isMounted = true
+            }
         }
+        
     }
 }
 
 function unlockNavbar() {
     if (typeof window !== `undefined`) {
+        isMounted = true
         var prevScrollpos = window.pageYOffset;
         window.onscroll = function() {
             var currentScrollPos = window.pageYOffset;
@@ -124,7 +143,6 @@ function unlockNavbar() {
         }
     }
 }
-
 
 
 const Header = () => {
@@ -141,7 +159,7 @@ const Header = () => {
                     <NavbarLinks  />
                 </Navbox>
             ) : (
-                <Navbox open>
+                <Navbox open >
                     <NavbarLinks />
                 </Navbox>
             )}

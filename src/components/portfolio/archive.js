@@ -1,7 +1,6 @@
 import React from 'react'
 import {graphql,useStaticQuery} from 'gatsby'
 import styled from "styled-components"
-import Img from "gatsby-image"
 
 const ArchiveContainer = styled.div`  
     min-height: 90vh;
@@ -128,14 +127,14 @@ const Archive = () => {
                             </td>
                             <td>
                                 {edge.node.frontmatter.external && (
-                                    <a href={edge.node.frontmatter.external} aria-label="External Link" target="_blank">
-                                        <img className="linkImg" src="/images/archive/external-link.png" />
+                                    <a href={edge.node.frontmatter.external} aria-label="External Link" target="_blank" rel="noreferrer">
+                                        <img className="linkImg" src="/images/archive/external-link.png" alt=""/>
                                     </a>
                                 )}
                                 
                                 {edge.node.frontmatter.github && (
-                                    <a href={edge.node.frontmatter.github} aria-label="github Link" target="_blank">
-                                        <img className="linkImg" src="/images/archive/github.png" />
+                                    <a href={edge.node.frontmatter.github} aria-label="Github Link" target="_blank" rel="noreferrer">
+                                        <img className="linkImg" src="/images/archive/github.png" alt=""/>
                                     </a>
                                 )}
                             </td>

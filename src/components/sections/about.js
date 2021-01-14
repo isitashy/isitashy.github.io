@@ -87,7 +87,7 @@ const About = () => {
       <hr />
       <Img className="aboutimg" fluid={data.file.childImageSharp.fluid} alt="Shysell Isita" />
       <p>
-        Hi there! <span>👋</span> My name is Shysell Isita (most people call me Shy). <br />
+        Hi there! <span role="img" aria-label="Waving Hand">👋</span> My name is Shysell Isita (most people call me Shy). <br />
         I am computer science major at Kennesaw State University. 
         I love programming and interested in solving real world problems. 
         I spend most days practicing my coding skills and learning new techniques. 
@@ -95,13 +95,13 @@ const About = () => {
       </p>
       <p><b> Aside from my programming, I have a few other interests: </b></p>
       <p>
-        <span>🎵</span> Music: I enjoy listening to music and discovering new artists. I'll make sure to give most songs a listen before I make up my mind.
+        <span role="img" aria-label="Musical Note">🎵</span> Music: I enjoy listening to music and discovering new artists. I'll make sure to give most songs a listen before I make up my mind.
         <br /> <br />
-        <span>🥊</span> Sports: I love watching sports and am happy to recreationally participate. I follow boxing, NFL, NBA, and the MLB. 
+        <span role="img" aria-label="Boxing Glove">🥊</span> Sports: I love watching sports and am happy to recreationally participate. I follow boxing, NFL, NBA, and the MLB. 
       </p>
       <br />
       <h2>Education</h2>
-      <p><span >🎓</span> B.S. in Computer Science <br /> &emsp;&emsp;Kennesaw State University</p>
+      <p><span role="img" aria-label="Graduation Cap">🎓</span> B.S. in Computer Science <br /> &emsp;&emsp;Kennesaw State University</p>
     </AboutContainer>
   )
 }
