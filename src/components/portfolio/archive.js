@@ -83,7 +83,7 @@ const Archive = () => {
     
     const pageQuery = useStaticQuery(graphql`
         query {
-            allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/archive/"}}, sort: {fields: [frontmatter___date], order: ASC}) {
+            allMarkdownRemark(filter: {fileAbsolutePath: {regex: "/archive/"}}, sort: {fields: [frontmatter___date], order: DESC}) {
                 edges {
                     node {
                         frontmatter {
